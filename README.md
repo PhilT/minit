@@ -1,7 +1,8 @@
 Minit!
 ====================================
 
-Minify JS and CSS in all environments except development and test for Ruby on Rails 3 apps.
+Minify JS and CSS in all environments except development and test for Ruby on Rails apps.
+(so far tested on Rails 3 but will be testing on Rails 2 in the coming days)
 
 No frills, no configuration, opinionated packager. Use it, fork it or use something else.
 
