@@ -10,7 +10,7 @@ This gem aims to fix two shortcomings in the main two asset packaging libraries,
 1. Jammit requires Java to package CSS
 2. asset_packager requires a configuration file to specify every single CSS or JS file
 
-It use CSSMin and JSMin gems from rgrove. Thanks!
+It uses CSSMin and JSMin gems from rgrove. Thanks!
 
 It will ignore files that don't exist. It will only include files once.
 
@@ -54,4 +54,11 @@ Jammit couldn't compress because Java wasn't installed on our CentOS server. I w
 to see if it was easy enough to put together a simpler solution.
 
 So it needs some tests which will follow shortly.
+
+Feel free to report bugs in Issues.
+
+Development
+====================================
+
+Minit uses MiniSpec, FakeFS, Watchr, RVM
 

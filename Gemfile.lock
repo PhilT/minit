@@ -1,0 +1,22 @@
+PATH
+  remote: .
+  specs:
+    minit (0.0.1)
+      cssmin
+      jsmin
+
+GEM
+  remote: http://rubygems.org/
+  specs:
+    cssmin (1.0.2)
+    fakefs (0.3.1)
+    jsmin (1.0.1)
+    watchr (0.7)
+
+PLATFORMS
+  ruby
+
+DEPENDENCIES
+  fakefs
+  minit!
+  watchr
