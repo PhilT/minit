@@ -8,8 +8,10 @@ class Minit
     include_method = {:javascripts => 'javascript_include_tag', :stylesheets => 'stylesheet_link_tag'}[type]
     raise "package type unknown. Only :javascripts or :stylesheets supported." unless compressor && extension && include_method
     package_name = "packaged.#{extension}"
+    return send(include_method, File.join('/assets', package_name)) if compress? && !create
+
     files = []
-    includes = (compress? && !create) ? File.join('/assets', package_name) : []
+    includes = []
     asset_path = File.join(Rails.root, 'public', type.to_s, '/')
 
     file = File.open(File.join(Rails.root, 'public', 'assets', package_name), 'w') if (compress? && create)
@@ -25,7 +27,6 @@ class Minit
       end
     end
     file.close if file
-    send(include_method, includes)
   end
 
   def compress?
