@@ -15,7 +15,7 @@ It uses CSSMin and JSMin gems from rgrove. Thanks!
 
 It will ignore files that don't exist. It will only include files once.
 
-It's less than 50 lines of code (and no, it's not forced)
+It's about 50 lines of code.
 
 Usage
 ====================================
@@ -48,18 +48,16 @@ Then ensure this folder structure to get the correct load order:
 Status / Todo
 ====================================
 
-First alpha release
+First release
 
 This was hacked together one afternoon as I was fed up seeing the error message that
-Jammit couldn't compress because Java wasn't installed on our CentOS server. I wanted
+Jammit couldn't compress because Java wasn't installed on our server. I wanted
 to see if it was easy enough to put together a simpler solution.
-
-So it needs some tests which will follow shortly.
 
 Feel free to report bugs in Issues.
 
 Development
 ====================================
 
-Minit uses MiniSpec, FakeFS, Watchr, RVM
+Minit uses MiniSpec, FakeFS, Watchr, RVM.
 

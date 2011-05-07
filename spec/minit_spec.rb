@@ -5,7 +5,7 @@ class Rails
   @@env = 'development'
   def self.env; @@env; end
   def self.env= env; @@env = env; end
-  def self.root; './root'; end
+  def self.root; '/root'; end
 end
 
 class Outputs
@@ -30,9 +30,10 @@ def javascript_include_tag *args
   $outputs.javascripts + args
 end
 
+require 'jsmin'
+require 'cssmin'
+require 'fakefs'
 require 'minit'
-require 'fileutils'
-#require 'fakefs' NOT WORKING CORRECTLY ON File.read (or maybe some other save method in main code)
 def create path, content
   path = File.join(Rails.root, 'public', path)
   FileUtils.mkdir_p File.dirname(path)
@@ -40,7 +41,6 @@ def create path, content
     f.puts content
   end
 end
-FileUtils.rm_rf Rails.root
 FileUtils.mkdir_p File.join(Rails.root, 'public/assets')
 create 'stylesheets/reset.css', 'body {padding: 0}'
 create 'stylesheets/default.css', 'img {border: none}'
@@ -63,8 +63,8 @@ describe 'Minit' do
       $outputs.output.must_equal ['Compressing assets...', 'Finished compressing assets.']
       $outputs.stylesheets.must_equal []
       $outputs.javascripts.must_equal []
-      File.read('root/public/assets/packaged.css').must_equal "body{padding:0;}\nimg{border:none;}\n.some_ui{;}\nbody{margin:20px auto;}\n"
-      File.read('root/public/assets/packaged.js').must_equal "\nvar jquery;\n\nvar menu;\n\n$(function(){});\n"
+      File.read('/root/public/assets/packaged.css').must_equal "body{padding:0;}\nimg{border:none;}\n.some_ui{;}\nbody{margin:20px auto;}\n"
+      File.read('/root/public/assets/packaged.js').must_equal "\nvar jquery;\n\nvar menu;\n\n$(function(){});\n"
     end
 
     it 'does not do anything when no compression required' do

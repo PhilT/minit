@@ -20,7 +20,7 @@ class Minit
         next if files.include?(path)
         files << path
         if compress? && create
-          file.puts compressor.minify(File.open(path))
+          file.puts compressor.minify(File.read(path))
         elsif !create
           includes << path.gsub(asset_path, '')
         end
