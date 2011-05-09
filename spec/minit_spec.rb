@@ -44,6 +44,7 @@ end
 FileUtils.mkdir_p File.join(Rails.root, 'public/assets')
 create 'stylesheets/reset.css', 'body {padding: 0}'
 create 'stylesheets/default.css', 'img {border: none}'
+create 'stylesheets/some.css', 'p {margin-bottom: 20px}'
 create 'stylesheets/application.css', 'body {margin: 20px auto}'
 create 'stylesheets/lib/jquery.ui.css', '.some_ui {}'
 create 'javascripts/lib/jquery.js', 'var jquery;'
@@ -63,7 +64,7 @@ describe 'Minit' do
       $outputs.output.must_equal ['Compressing assets...', 'Finished compressing assets.']
       $outputs.stylesheets.must_equal []
       $outputs.javascripts.must_equal []
-      File.read('/root/public/assets/packaged.css').must_equal "body{padding:0;}\nimg{border:none;}\n.some_ui{;}\nbody{margin:20px auto;}\n"
+      File.read('/root/public/assets/packaged.css').must_equal "body{padding:0;}\nimg{border:none;}\nbody{margin:20px auto;}\n.some_ui{;}\np{margin-bottom:20px;}\n"
       File.read('/root/public/assets/packaged.js').must_equal "\nvar jquery;\n\nvar menu;\n\n$(function(){});\n"
     end
 

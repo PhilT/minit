@@ -41,6 +41,7 @@ Then ensure this folder structure to get the correct load order:
       stylesheets/
         reset.css
         default.css
+        application.css
         lib/
           *
         *

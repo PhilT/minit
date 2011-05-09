@@ -34,7 +34,7 @@ class Minit
   end
 
   def include_stylesheets create = false
-    package :stylesheets, %w(reset.css default.css lib/**/*.css **/*.css), create
+    package :stylesheets, %w(reset.css default.css application.css lib/**/*.css **/*.css), create
   end
 
   def include_javascripts create = false
